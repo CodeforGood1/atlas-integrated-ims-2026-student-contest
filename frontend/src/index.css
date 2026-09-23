@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-warm-50: #FAFAFA;
+  --color-warm-100: #F5F7F9;
+  --color-warm-200: #E2E8F0;
+  --color-warm-300: #CBD5E1;
+  --color-warm-400: #94A3B8;
+  --color-warm-500: #64748B;
+  --color-warm-600: #475569;
+  --color-warm-700: #334155;
+  --color-warm-800: #1E293B;
+  --color-warm-900: #0F172A;
+
+  --color-copper-400: #B8936F;
+  --color-copper-500: #9C7B5C;
+  --color-copper-600: #85694E;
+  --color-copper-700: #6B543E;
+
+  --color-safe-500: #10B981;
+  --color-warning-500: #F59E0B;
+  --color-danger-500: #EF4444;
+  --color-info-500: #3B82F6;
+
+  /* Refined Typography System */
+  --font-size-page-title: 30px;
+  --font-size-section-title: 18px;
+  --font-size-card-label: 11px;
+  --font-size-kpi-value: 38px;
+  --font-size-table-header: 11px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #F8FAFC;
+  color: var(--color-warm-800);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: rgba(156, 123, 92, 0.4);
+  color: #FFFFFF;
+}
+
+.premium-card {
+  @apply bg-white rounded-[28px] border border-warm-200 shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300;
+}
+
+.premium-card-dark {
+  @apply bg-warm-900 rounded-[28px] border border-transparent shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-300 text-white;
+}
+
+.inner-card {
+  @apply bg-warm-50/50 rounded-[24px] border border-warm-100 p-6;
+}
+
+.section-title {
+  @apply text-[18px] font-semibold text-warm-900 tracking-tight;
+}
+
+.card-label {
+  @apply text-[11px] font-semibold text-warm-500 uppercase tracking-[0.1em];
+}
+
+.kpi-value {
+  @apply text-[38px] font-bold text-warm-900 tracking-tight tabular-nums;
+}
+
+.table-header {
+  @apply text-[11px] font-semibold text-warm-400 uppercase tracking-wider;
+}
+
+.table-row {
+  @apply text-[14px] font-medium text-warm-700;
+}
+
+.dashed-border {
+  background-image: linear-gradient(to right, var(--color-warm-200) 50%, transparent 50%);
+  background-position: bottom;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
+
+/* Sidebar Refinement */
+.sidebar-active {
+  @apply bg-warm-900 text-white shadow-lg;
+}
+
+.sidebar-item {
+  @apply text-warm-500 hover:text-warm-900 hover:bg-warm-100/50 transition-all rounded-2xl;
+}
+
+/* Animations */
+@keyframes pulse-safe {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.2); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes pulse-warning {
+  0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.2); }
+  70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+@keyframes pulse-danger {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.pulse-safe { animation: pulse-safe 2s infinite; }
+.pulse-warning { animation: pulse-warning 2s infinite; }
+.pulse-danger { animation: pulse-danger 1.5s infinite; }
+
+/* Custom Premium Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-warm-200);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-300);
+}
+
+/* Dark mode scrollbar for the Diagnostic panel */
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
